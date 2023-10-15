@@ -20,14 +20,14 @@ function App() {
           onClick={fetchJokesHandler}
         >Fetch Jokes</button>
       </section>
-      {
-        dummyJokes[0] === '0' && !isDummy ? null :
-          <section>
-            {
-              isDummy ? < JokeList jokes={[{ setup: 'Geting Jokes from GitHub...' }]} /> : < JokeList jokes={dummyJokes} />
-            }
-          </section>
-      }
+      <section>
+        {
+          dummyJokes[0] === '0' && !isDummy ?
+            < JokeList jokes={[{ setup: 'Jokes were not finded' }]} /> :
+            isDummy ?
+            < JokeList jokes={[{ setup: 'Geting Jokes from GitHub...' }]} /> : < JokeList jokes={dummyJokes} />
+        }
+      </section>
     </React.Fragment>
   ) 
 }
