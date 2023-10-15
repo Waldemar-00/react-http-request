@@ -5,9 +5,10 @@ import "./App.css"
 
 function App() {
   const [dummyJokes, setDummyJokes] = useState([])
-  function fetchJokesHandler() {
-    fetch('https://official-joke-api.appspot.com/random_ten')
-      .then(response => response.json()).then(data => setDummyJokes(data))
+  async function fetchJokesHandler() {
+    const response = await fetch('https://official-joke-api.appspot.com/random_ten')
+    const data = await response.json()
+    setDummyJokes(data)
   }
   return (
     <React.Fragment>
