@@ -6,11 +6,21 @@ import "./App.css"
 function App() {
   const [dummyJokes, setDummyJokes] = useState(['0'])
   const [isDummy, setIsDummy] = useState(false)
+  const [error, setError] = useState(null)
   async function fetchJokesHandler() {
     setIsDummy(true)
-    const response = await fetch('https://official-joke-api.appspot.com/random_ten')
-    const data = await response.json()
-    setDummyJokes(data)
+    setError(null)
+    try {
+      const response = await fetch('https://official-joke-api.appspot.com/random_ten')
+      if (!response.ok) {
+        throw new Error(`Response status - ${response.status} / Somthing wrong!`)
+      }
+      const data = await response.json()
+      setDummyJokes(data)
+    } catch(throwError) {
+      setError(throwError)
+      console.log(throwError)
+    }
     setIsDummy(false)
   }
   return (
@@ -22,10 +32,12 @@ function App() {
       </section>
       <section>
         {
-          dummyJokes[0] === '0' && !isDummy ?
+          !isDummy && error ?
+            < JokeList jokes={[{ setup: error.message }]} /> :
+          dummyJokes[0] === '0' && !isDummy && !error ?
             < JokeList jokes={[{ setup: 'Jokes were not finded' }]} /> :
             isDummy ?
-            < JokeList jokes={[{ setup: 'Geting Jokes from GitHub...' }]} /> : < JokeList jokes={dummyJokes} />
+              < JokeList jokes={[{ setup: 'Geting Jokes from GitHub...' }]} /> : < JokeList jokes={dummyJokes} />
         }
       </section>
     </React.Fragment>

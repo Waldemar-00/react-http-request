@@ -1,5 +1,5 @@
 import React from "react";
-
+import { v4 } from 'uuid'
 import Joke from "./Joke";
 import styles from "./JokeList.module.css";
 
@@ -8,7 +8,7 @@ const JokeList = ({ jokes }) => {
       <ul className={styles["joke-list"]}>
         {jokes.map((joke) => (
           <Joke
-            key={joke.id}
+            key={v4()}
             type={joke.type}
             setup={joke.setup}
             punchline={joke.punchline}

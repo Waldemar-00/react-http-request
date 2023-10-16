@@ -1,5 +1,4 @@
 import React from "react" 
-
 import styles from "./Joke.module.css" 
 
 const Joke = (props) => {
