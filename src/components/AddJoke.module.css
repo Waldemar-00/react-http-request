@@ -1,0 +1,22 @@
+.form {
+  display: grid;
+  grid-template-columns: auto;
+}
+.form label {
+  text-align: left;
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  color: #fff;
+  color: #20547aff;
+  font-style: italic;
+}
+.form input {
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  outline: none;
+  color: #20547aff;
+  text-align: center;
+}
