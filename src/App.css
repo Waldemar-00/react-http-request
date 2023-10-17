@@ -20,7 +20,7 @@ section {
   margin-bottom: 1rem;
 }
 
-button {
+.button {
   font: inherit;
   cursor: pointer;
   background-color: #20547aff;
@@ -30,12 +30,12 @@ button {
   padding: 0.75rem 2rem;
 }
 
-button:hover,
-button:active {
+.button:hover,
+.button:active {
   background-color: #ff9785;
   border-color: #ff9785;
 }
 
-button:focus {
+.button:focus {
   outline: none;
 }

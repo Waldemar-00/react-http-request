@@ -30,7 +30,7 @@ function App() {
   return (
     <React.Fragment>
       <section>
-        <button
+        <button className="button"
           onClick={fetchJokesHandler}
         >Fetch Jokes</button>
       </section>
@@ -47,7 +47,6 @@ function App() {
       <section>
         <h2 className='h2'>Write your Joke</h2>
         <AddJoke className={style.form} />
-        <button>Add Joke</button>
       </section>
     </React.Fragment>
   ) 

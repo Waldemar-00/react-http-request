@@ -10,7 +10,7 @@
   color: #20547aff;
   font-style: italic;
 }
-.form input {
+.form input, textarea {
   border: none;
   border-radius: 0.75rem;
   font-size: 1.2rem;
@@ -19,4 +19,8 @@
   outline: none;
   color: #20547aff;
   text-align: center;
+}
+.form textarea {
+  height: 4rem;
+  resize: none;
 }
